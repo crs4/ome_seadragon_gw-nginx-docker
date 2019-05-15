@@ -15,6 +15,7 @@ RUN mkdir /etc/nginx/sites-enabled/
 
 COPY conf_files/nginx.conf /etc/nginx/nginx.conf
 COPY conf_files/ome_seadragon_gw.template /etc/nginx/conf.d/ome_seadragon_gw.template
+COPY conf_files/ome_seadragon_gw.location /etc/nginx/apps/
 COPY resources/wait-for-it.sh \
      resources/entrypoint.sh \
      /usr/local/bin/
