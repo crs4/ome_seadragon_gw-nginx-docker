@@ -14,7 +14,7 @@ COPY --from=0 /home/ome-seadragon/app/ome_seadragon_gateway/static/ /opt/ome_sea
 RUN mkdir /etc/nginx/sites-enabled/
 
 COPY conf_files/nginx.conf /etc/nginx/nginx.conf
-COPY conf_files/ome_seadragon_gw.template /etc/nginx/conf.d/ome_seadragon_gw.template
+COPY conf_files/*.template /etc/nginx/conf.d/
 COPY conf_files/ome_seadragon_gw.location /etc/nginx/apps/
 COPY resources/wait-for-it.sh \
      resources/entrypoint.sh \
