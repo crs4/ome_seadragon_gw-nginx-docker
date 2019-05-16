@@ -1,0 +1,25 @@
+upstream ome_gw_server {
+  server ${DJANGO_SERVER} fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name localhost;
+
+    return 301 https://${VIRTUAL_HOST}:443$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name localhost;
+
+    ssl_certificate /etc/nginx/certs/${VIRTUAL_HOST}.crt;
+    ssl_certificate_key /etc/nginx/certs/${VIRTUAL_HOST}.key;
+
+    client_max_body_size 4G;
+
+    access_log /var/log/nginx/nginx-access.log;
+    error_log /var/log/nginx/nginx-error.log;
+ 
+    include apps/ome_seadragon_gw.location;
+}

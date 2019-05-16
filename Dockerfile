@@ -20,4 +20,6 @@ COPY resources/wait-for-it.sh \
      resources/entrypoint.sh \
      /usr/local/bin/
 
+EXPOSE 443
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
