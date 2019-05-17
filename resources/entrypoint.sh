@@ -3,7 +3,13 @@
 set -e
 
 echo "-- Preparing site configuration file --"
+DJANGO_SERVER="${DJANGO_SERVER:-}"
 PROTOCOL="${VIRTUAL_PROTO:-http}"
+
+if [ -z $DJANGO_SERVER ]; then
+    echo "No DJANGO_SERVER specified, exit!"
+    exit 125
+fi
 
 if [ $PROTOCOL == "http" ]; then
     echo "Configuring for HTTP protocol"
