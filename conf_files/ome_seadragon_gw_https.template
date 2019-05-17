@@ -1,5 +1,5 @@
 upstream ome_gw_server {
-  server ${DJANGO_SERVER} fail_timeout=0;
+  server ${DJANGO_SERVER}:8080 fail_timeout=0;
 }
 
 server {
@@ -17,9 +17,6 @@ server {
     ssl_certificate_key /etc/nginx/certs/${VIRTUAL_HOST}.key;
 
     client_max_body_size 4G;
-
-    access_log /var/log/nginx/nginx-access.log;
-    error_log /var/log/nginx/nginx-error.log;
  
     include apps/ome_seadragon_gw.location;
 }
