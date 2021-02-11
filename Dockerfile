@@ -1,5 +1,5 @@
 # Builder (stage 0)
-ARG OME_SEADRAGON_GW_VERSION=0.1.3
+ARG OME_SEADRAGON_GW_VERSION=0.2.0
 
 FROM crs4/ome_seadragon_gw-web:${OME_SEADRAGON_GW_VERSION}
 
